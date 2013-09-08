@@ -73,18 +73,18 @@ private slots:
     void on_yowsup_auth_success(QString phonenumber);
     void on_yowsup_auth_fail(QString mobilenumber, QString reason);
     void on_yowsup_status_dirty();
-    void on_yowsup_message_received(QString msgId, QString jid, QString content, uint timestamp, bool wantsReceipt, QString pushName);
+    void on_yowsup_message_received(QString msgId, QString jid, QString content, uint timestamp, bool wantsReceipt, QString pushName, bool isBroadcast);
     void on_yowsup_disconnected(QString reason);
     void on_yowsup_receipt_messageSent(QString jid,QString msgId);
     void on_yowsup_receipt_messageDelivered(QString jid, QString msgId);
     void on_yowsup_presence_available(QString jid);
     void on_yowsup_presence_unavailable(QString jid);
 
-    void on_yowsup_image_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt);
-    void on_yowsup_video_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt);
-    void on_yowsup_audio_received(QString msgId, QString jid, QString url, QString size, bool wantsReceipt);
-    void on_yowsup_location_received(QString msgId,QString jid,QString name,QString preview,QString latitude,QString longitude,bool wantsReceipt);
-    void on_yowsup_vcard_received(QString msgId,QString jid,QString name, QString data,bool wantsReceipt);
+    void on_yowsup_image_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt,bool isBroadcast);
+    void on_yowsup_video_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt,bool isBroadcast);
+    void on_yowsup_audio_received(QString msgId, QString jid, QString url, QString size, bool wantsReceipt,bool isBroadcast);
+    void on_yowsup_location_received(QString msgId,QString jid,QString name,QString preview,QString latitude,QString longitude,bool wantsReceipt,bool isBroadcast);
+    void on_yowsup_vcard_received(QString msgId,QString jid,QString name, QString data,bool wantsReceipt,bool isBroadcast);
 
     void on_yowsup_group_imageReceived(QString msgId,QString gid,QString jid,QString preview,QString url,QString size,bool wantsReceipt);
     void on_yowsup_group_videoReceived(QString msgId,QString gid,QString jid,QString preview,QString url,QString size,bool wantsReceipt);

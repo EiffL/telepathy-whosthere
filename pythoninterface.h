@@ -34,12 +34,12 @@ signals:
     void auth_fail(QString mobilenumber, QString reason);
     void status_dirty();
 
-    void message_received(QString msgId, QString jid, QString content, uint timestamp, bool wantsReceipt, QString pushName);
-    void image_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt);
-    void video_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt);
-    void audio_received(QString msgId,QString jid,QString url,QString size,bool wantsReceipt);
-    void location_received(QString msgId,QString jid,QString name,QString preview,QString latitude,QString longitude,bool wantsReceipt);
-    void vcard_received(QString msgId,QString jid,QString name, QString data,bool wantsReceipt);
+    void message_received(QString msgId, QString jid, QString content, uint timestamp, bool wantsReceipt, QString pushName, bool isBroadcast);
+    void image_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt,bool isBroadcast);
+    void video_received(QString msgId,QString jid,QString preview,QString url,QString size,bool wantsReceipt,bool isBroadcast);
+    void audio_received(QString msgId,QString jid,QString url,QString size,bool wantsReceipt,bool isBroadcast);
+    void location_received(QString msgId,QString jid,QString name,QString preview,QString latitude,QString longitude,bool wantsReceipt,bool isBroadcast);
+    void vcard_received(QString msgId,QString jid,QString name, QString data,bool wantsReceipt,bool isBroadcast);
 
     void group_imageReceived(QString msgId,QString jid,QString author,QString preview,QString url,QString size,bool wantsReceipt);
     void group_videoReceived(QString msgId,QString jid,QString author,QString preview,QString url,QString size,bool wantsReceipt);

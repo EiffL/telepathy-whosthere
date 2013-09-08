@@ -748,7 +748,7 @@ void YSConnection::yowsup_messageReceived(QString msgId, QString jid, const Mess
 }
 
 void YSConnection::on_yowsup_message_received(QString msgId, QString jid, QString content, uint timestamp,
-                                    bool wantsReceipt, QString pushName) {
+                                    bool wantsReceipt, QString pushName, bool isBroadcast) {
     qDebug() << "YSConnection::message_received " << msgId <<  " " << jid << " " << content;
 
     MessagePart body;
@@ -787,7 +787,7 @@ void YSConnection::yowsup_linked_data_received(const char* type, QString msgId, 
 }
 
 void YSConnection::on_yowsup_image_received(QString msgId, QString jid, QString preview,
-                                            QString url, QString size, bool wantsReceipt) {
+                                            QString url, QString size, bool wantsReceipt, bool isBroadcast) {
 
     yowsup_linked_data_received("image", msgId, jid, preview, url, size, wantsReceipt);
 }
@@ -796,7 +796,7 @@ void YSConnection::on_yowsup_group_imageReceived(QString msgId,QString gid,QStri
     yowsup_linked_data_received("image", msgId, jid, preview, url, size, wantsReceipt, gid);
 }
 
-void YSConnection::on_yowsup_video_received(QString msgId, QString jid, QString preview, QString url, QString size, bool wantsReceipt){
+void YSConnection::on_yowsup_video_received(QString msgId, QString jid, QString preview, QString url, QString size, bool wantsReceipt, bool isBroadcast){
 
     yowsup_linked_data_received("video", msgId, jid, preview, url, size, wantsReceipt);
 }
@@ -805,7 +805,7 @@ void YSConnection::on_yowsup_group_videoReceived(QString msgId,QString gid,QStri
     yowsup_linked_data_received("video", msgId, jid, preview, url, size, wantsReceipt, gid);
 }
 
-void YSConnection::on_yowsup_audio_received(QString msgId,QString jid,QString url,QString size,bool wantsReceipt){
+void YSConnection::on_yowsup_audio_received(QString msgId,QString jid,QString url,QString size,bool wantsReceipt, bool isBroadcast){
     yowsup_linked_data_received("audio", msgId, jid, "", url, size, wantsReceipt);
 }
 
@@ -843,7 +843,7 @@ void YSConnection::yowsup_location_received(QString msgId, QString jid,
     yowsup_messageReceived(msgId, jid, body, 0, wantsReceipt, gid);
 }
 
-void YSConnection::on_yowsup_location_received(QString msgId,QString jid,QString name,QString preview,QString latitude,QString longitude,bool wantsReceipt){
+void YSConnection::on_yowsup_location_received(QString msgId,QString jid,QString name,QString preview,QString latitude,QString longitude,bool wantsReceipt, bool isBroadcast){
     yowsup_location_received(msgId, jid, name, preview, latitude, longitude, wantsReceipt);
 }
 
@@ -868,7 +868,7 @@ void YSConnection::yowsup_vcard_received(QString msgId,QString jid,QString name,
     yowsup_messageReceived(msgId, jid, body, 0, wantsReceipt, gid);
 }
 
-void YSConnection::on_yowsup_vcard_received(QString msgId,QString jid,QString name, QString data,bool wantsReceipt){
+void YSConnection::on_yowsup_vcard_received(QString msgId,QString jid,QString name, QString data,bool wantsReceipt, bool isBroadcast){
     yowsup_vcard_received(msgId, jid, name, data, wantsReceipt);
 }
 
